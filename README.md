@@ -1,69 +1,47 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get React working in Vite .
 
-Currently, two official plugins are available:
+**Book Finder for Alex:--**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A React-based web application designed for Alex, a college student, to search for books using the Open Library Search API. Users can search by title, author, subject, ISBN, or general query, with results displayed in a visually appealing, responsive interface.
+Features
 
-## Expanding the ESLint configuration
+Search books via multiple criteria (title, author, subject, ISBN, or all fields).
+Displays book details including cover, title, author(s), publication year, subjects, and ISBN.
+Responsive design with modern styling, hover effects, and a loading spinner.
+Links to Open Library for more details.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Framework: React (v18)
+Styling: Custom CSS with modern design (gradients, shadows, transitions)
+API: Open Library Search API (https://openlibrary.org/search.json)
+Dependencies: React, ReactDOM, Babel (via CDN)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Setup
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clone the repository.
+Serve index.html using a local server (e.g., npx serve or VS Code Live Server).
+Ensure internet access for CDN scripts and API calls.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Files
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+index.html: Entry point with CDN imports.
+App.jsx: Main React component with search logic and UI.
+App.css: Custom styles for the application.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
+Usage
+
+Select a search type from the dropdown.
+Enter a search term (e.g., "computer science").
+Click "Search" to fetch and display up to 20 books.
+Hover over book cards for visual feedback; click links to visit Open Library.
+
+Notes
+
+No authentication required for the Open Library API.
+Designed for Alex’s needs as a student, with a clean and intuitive interface.
+
 ])
 ```
